@@ -2,7 +2,7 @@
 
 namespace App\Descriptor;
 
-class OrderStatusDescriptor {
+class OrderStatusDescriptor extends StandardDescriptor {
 
     public const ORDER_RECEIVED = 'R';
     public const ORDER_CANCELED = 'C';
@@ -10,7 +10,7 @@ class OrderStatusDescriptor {
     public const ORDER_READY_TO_SHIP = 'T';
     public const ORDER_SHIPPED = 'S';
 
-    public static function getStatusList() {
+    public static function getStatusList(): array {
         return array(
             'Order received' => OrderStatusDescriptor::ORDER_RECEIVED,
             'Order canceled' => OrderStatusDescriptor::ORDER_CANCELED,
@@ -18,14 +18,5 @@ class OrderStatusDescriptor {
             'Ready to ship' => OrderStatusDescriptor::ORDER_READY_TO_SHIP,
             'Order shipped' => OrderStatusDescriptor::ORDER_SHIPPED
         );
-    }
-
-    public static function getDescriptor($type) {
-        $types = self::getStatusList();
-        foreach ($types as $t => $key) {
-            if($key == $type) {
-                return $t;
-            }
-        }
     }
 }

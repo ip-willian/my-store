@@ -2,24 +2,16 @@
 
 namespace App\Descriptor;
 
-class PickingStatusDescriptor {
+class PickingStatusDescriptor extends StandardDescriptor {
 
     public const OPEN = 'O';
     public const COMPLETED = 'C';
 
-    public static function getStatusList() {
+    public static function getStatusList(): array {
         return array(
             'Open' => PickingStatusDescriptor::OPEN,
             'Completed' => PickingStatusDescriptor::COMPLETED
         );
     }
 
-    public static function getDescriptor($type) {
-        $types = self::getStatusList();
-        foreach ($types as $t => $key) {
-            if($key == $type) {
-                return $t;
-            }
-        }
-    }
 }
