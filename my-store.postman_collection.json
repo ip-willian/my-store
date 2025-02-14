@@ -1,0 +1,42 @@
+{
+	"variables": [],
+	"info": {
+		"name": "my-store",
+		"_postman_id": "6ba5288a-9e02-aa7b-b755-5dd4a5531fce",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8000/api/v1/order/create",
+			"request": {
+				"url": "http://localhost:8000/api/v1/order/place",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"total\" : 220.00,\n\t\"discount\": 0.00,\n\t\"address\" : \"Street example\",\n\t\"addressNumber\" : \"450\",\n\t\"postalCode\" : \"123456\",\n\t\"city\" : \"New York\",\n\t\"items\" : [\n\t\t{\n\t\t\t\"product\" : 2,\n\t\t\t\"amount\" : 2,\n\t\t\t\"unityPrice\" : 50.00\n\t\t},\n\t\t{\n\t\t\t\"product\" : 1,\n\t\t\t\"amount\" : 1,\n\t\t\t\"unityPrice\": 100.00\n\t\t}\n\t]\n}"
+				},
+				"description": "Creates an order"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/v1/order/cancel/4",
+			"request": {
+				"url": "http://localhost:8000/api/v1/order/cancel/4",
+				"method": "PATCH",
+				"header": [],
+				"body": {},
+				"description": "Cancel an order"
+			},
+			"response": []
+		}
+	]
+}
