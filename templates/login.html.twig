@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+<main class="container">
+    <div class="bg-light p-5 rounded">
+        <form method="post" action="{{ path('system_do_login_check') }}" >
+            {% if app.session.flashBag.has('success') %}
+                <div class="row">
+                    <div class="alert alert-success col col-md-12">
+                        {% for msg in app.session.flashBag.get('success') %}
+                            {{ msg }}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+            {% if app.session.flashBag.has('error') %}
+                <div class="row">
+                    <div class="alert alert-danger col col-md-12">
+                        {% for msg in app.session.flashBag.get('error') %}
+                            {{ msg }}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+
+            <br />
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Please, login with your e-mail and password</h3>
+                    <label for="email" >E-mail:</label>
+                    <input class="form-control" placeholder="Your e-mail address" type="email"
+                           required autofocus id="_username" name="_username"
+                    value="{% if last_username is defined %}{{ last_username }} {% endif %}">
+                    <label for="senha" >Password:</label>
+                    <input class="form-control" type="password" required name="_password"
+                           id="password" placeholder="Your password">
+
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="submit" class="btn btn-primary" value="Login">
+                </div>
+            </div>
+        </form>
+    </div>
+</main>
+{% endblock %}
