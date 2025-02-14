@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\OrderItemRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Attribute\Ignore;
 
 #[ORM\Entity(repositoryClass: OrderItemRepository::class)]
 class OrderItem
@@ -22,6 +23,7 @@ class OrderItem
     #[ORM\Column(type: 'float')]
     private ?float $unityPrice = null;
 
+    #[Ignore]
     #[ORM\ManyToOne(targetEntity: Order::class, inversedBy: 'items')]
     private ?Order $quote = null;
 
