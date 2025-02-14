@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{ path('store_index') }}">My Store</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                {% if is_granted('ROLE_PICKING') %}
+                    <li><a class="nav-link" href="{{ path('picking_index') }}">Picking</a></li>
+                {% endif %}
+                {% if is_granted('ROLE_SHIPPING') %}
+                    <li><a class="nav-link" href="{{ path('shipping_index') }}">Shipping</a></li>
+                {% endif %}
+                {% if is_granted('ROLE_MANAGEMENT') %}
+                    <li><a class="nav-link" href="{{ path('management_index') }}">Management</a></li>
+                {% endif %}
+
+                {% if not is_granted("IS_AUTHENTICATED_FULLY") %}
+                    <li><a class="nav-link" href="{{ path('login') }}">Login</a></li>
+                {% else %}
+                    <li><a class="nav-link" href="{{ path('logout') }}">Logout</a></li>
+                {% endif %}
+            </ul>
+            {% if is_granted('ROLE_MANAGEMENT') %}
+                <form class="d-flex" method="post" action="{{ path('management_search_order') }}">
+                    <input class="form-control me-2" name="order" type="search" placeholder="Search order by code" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Find</button>
+                </form>
+            {% endif %}
+        </div>
+    </div>
+</nav>

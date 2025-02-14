@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+{% block title %}Order history{% endblock %}
+
+{% block page_css %}
+{% endblock %}
+
+{% block body %}
+    <main class="container">
+        <div class="row">
+            <div class="bg-light p-5 rounded">
+                <h1>History for order #{{ order.id }}</h1>
+                <table class="table table-striped">
+                    <thead>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Message</th>
+                    </thead>
+                    <tbody>
+                        {% for log in order.history %}
+                            <tr>
+                                <td>{{ log.createdAt|date('m-d-Y') }}</td>
+                                <td>{{ log.statusDescription }}</td>
+                                <td>{{ log.message }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block page_js %}
+{% endblock %}

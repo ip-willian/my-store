@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% block title %}Shipping order{% endblock %}
+
+{% block page_css %}{% endblock %}
+
+{% block body %}
+    <main class="container">
+        <div class="row">
+            <div class="bg-light p-5 rounded">
+                <h1>Include shipping information for order #{{ order.id }}</h1>
+                {{ form_start(form, {'enctype': 'multipart/form-data' }) }}
+                {{ form_widget(form) }}
+
+                <div class="row">
+                    <div class="col col-md-12">
+                        <hr />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-md-12">
+                        <button class="btn btn-primary float-right">{{ button_label|default('Save') }}</button>
+                    </div>
+                </div>
+                {{ form_end(form) }}
+
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block page_js %}{% endblock %}
