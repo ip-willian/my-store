@@ -17,23 +17,24 @@ A simple symfony 5.4 website to manage orders
 
   run symfony server:start
   
-  inside public folder, create a new folder 
-  called uploads and inside uploads create a folder named labels - this directories will allow to upload the label for the shipping department
+  inside **public** folder, create a new folder 
+  named **uploads** and inside uploads create a 
+  folder named **labels** - these directories will allow to upload the label for the shipping department
 ```
 
 ## Creating users for testing
 
 open browser and access endpoint http://localhost:8000/register
 
-Picking
+**Picking**
 e-mail: picking@mystore.com
 password: 123456
 
-Shipping
+**Shipping**
 e-mail: shipping@mystore.com
 password: 123456
 
-Management
+**Management**
 e-mail: manager@mystore.com
 password: 123456
 
