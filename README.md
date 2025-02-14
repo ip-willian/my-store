@@ -17,7 +17,8 @@ A simple symfony 5.4 website to manage orders
 
   run symfony server:start
   
-  inside public folder, create a new folder called uploads and inside uploads create a folder named labels - this directories will allow to upload the label for the shipping department
+  inside public folder, create a new folder 
+  called uploads and inside uploads create a folder named labels - this directories will allow to upload the label for the shipping department
 ```
 
 ## Creating users for testing
